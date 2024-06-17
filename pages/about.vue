@@ -1,0 +1,6 @@
+<template>
+  <div>About me:</div>
+</template>
+<script setup lang="ts"></script>
+
+<style scoped lang="postcss"></style>
