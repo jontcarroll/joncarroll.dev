@@ -12,31 +12,14 @@ export default {
     extend: {
       fontFamily: {
         monoton: ['Monoton', 'sans-serif'],
-        chakra: ['Chakra Petch', 'sans-serif']
+        chakra: ['Chakra Petch', 'sans-serif'],
+        inconsolata: ['Inconsolata', 'monospace']
       }
     }
   },
   plugins: [require('daisyui'), require('@tailwindcss/typography')],
+  darkMode: ['class', '[data-theme="dark"]'],
   daisyui: {
-    themes: [
-      'light',
-      'dark',
-      'cupcake',
-      'coffee',
-      'dracula',
-      'synthwave',
-      'retro',
-      'night',
-      'cmyk',
-      'nord',
-      'emerald',
-      'lofi',
-      'black',
-      'lemonade',
-      'forest',
-      'aqua',
-      'sunset',
-      'corporate'
-    ]
+    themes: ['corporate', 'dark', 'cyberpunk']
   }
 }

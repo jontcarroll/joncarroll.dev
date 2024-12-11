@@ -1,7 +1,7 @@
 <template>
-  <li class="mb-10 ms-4 mt-10">
+  <li ref="el" class="timeline-entry" :class="{ visible: show }">
     <div
-      class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-primary"
+      class="absolute -start-1.5 -ml-[1rem] mt-1.5 h-3 w-3 rounded-full border border-white bg-primary"
     ></div>
 
     <time class="text-sm font-normal leading-none" v-html="entry.date" />
@@ -35,12 +35,28 @@
 
 <script setup lang="ts">
   import type { TimelineEntry } from '~/models/timeline'
+  import { useElementBounding, useWindowSize } from '@vueuse/core'
 
   const props = defineProps<{
     entry: TimelineEntry
   }>()
 
-  const logoSrc = computed(() => `_nuxt/assets/images/${props.entry.logo}.png`)
+  const el = ref()
+
+  const { height } = useWindowSize()
+  const { bottom, top } = useElementBounding(el)
+
+  const show = computed(() => top.value && top.value < height.value * 0.8)
 </script>
 
-<style scoped lang="postcss"></style>
+<style scoped lang="postcss">
+  .timeline-entry {
+    @apply my-10 ms-4 opacity-0 blur-xl;
+
+    transition: all 0.4s ease-in-out;
+
+    &.visible {
+      @apply opacity-100 blur-none;
+    }
+  }
+</style>

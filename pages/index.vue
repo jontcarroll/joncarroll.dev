@@ -1,17 +1,18 @@
 <template>
   <div class="flex w-full flex-col">
-    <div class="relative flex w-full bg-base-200 p-8">
+    <div class="relative flex w-full bg-base-200 px-8 py-[4rem]">
       <div
         class="flex w-full flex-col items-center justify-center pb-5 md:flex-row md:justify-start"
       >
         <Svg name="avatar" class="bg-base shrink-0 scale-75 text-accent" />
         <div class="flex w-full flex-col gap-5 text-xl">
-          <span class="text-primary"> Hey there, </span>
+          <span class="text-lg"> Hey there, </span>
           <h1 class="text-5xl text-base-content">I'm Jon.</h1>
           <span class="prose"
             >Senior software engineer with 10 years of full-stack development experience,
-            specializing in <strong>.NET</strong>, <strong>EF Core</strong> and
-            <strong>Vue + Nuxt</strong>.<br /><br />
+            specializing in <strong class="text-lg text-accent">.NET</strong>,
+            <strong class="text-lg text-accent">EF Core</strong> and
+            <strong class="text-lg text-accent">Vue + Nuxt</strong>.<br /><br />
             Currently working remotely out of <strong>Greenville, SC</strong>.</span
           >
         </div>
@@ -19,13 +20,13 @@
       <div
         class="absolute -bottom-[1.5rem] right-[38%] md:right-[10rem] lg:right-[15rem] xl:right-[20rem]"
       >
-        <div class="flex gap-[2rem] text-base-content/80">
-          <Icon
-            name="entypo-social:linkedin-with-circle"
-            size="3rem"
-            class="rounded-full bg-white"
-          />
-          <Icon name="entypo-social:github-with-circle" size="3rem" class="rounded-full bg-white" />
+        <div class="social-links">
+          <a href="#">
+            <Icon name="entypo-social:linkedin-with-circle" size="3rem" />
+          </a>
+          <a href="#">
+            <Icon name="entypo-social:github-with-circle" size="3rem" />
+          </a>
         </div>
       </div>
     </div>
@@ -56,6 +57,7 @@
         </div>
       </div>
     </div>
+    <!--    <DarkModeSelector />-->
   </div>
 </template>
 
@@ -106,3 +108,24 @@
     }
   ])
 </script>
+
+<style>
+  .social-links {
+    @apply flex gap-[2rem] text-base-content/80;
+
+    a {
+      @apply z-10;
+
+      svg {
+        @apply rounded-full border-0 bg-white dark:bg-base-200;
+
+        transition: all 0.2s ease-in-out;
+      }
+    }
+    a:hover {
+      svg {
+        @apply scale-[120%] border-2 border-primary;
+      }
+    }
+  }
+</style>

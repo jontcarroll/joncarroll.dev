@@ -2,13 +2,13 @@
   <div class="nav-icon">
     <NuxtLink to="/" class="">
       <div class="icon-wrapper">
-        <span class="brackets">&lt;</span>
-
+        <!--        <span class="brackets">&lt;</span>-->
+        <span class="text-xl font-bold text-primary">~/</span>
         <div class="expandable" :class="{ expand: mounted }">
-          <span v-show="mounted" class="icon-text">JON CARROLL</span>
+          <span v-show="mounted" class="icon-text">joncarroll</span>
         </div>
 
-        <span class="brackets">\&gt;</span>
+        <!--        <span class="brackets">\&gt;</span>-->
       </div>
     </NuxtLink>
   </div>
@@ -22,19 +22,19 @@
 
 <style scoped lang="postcss">
   .nav-icon {
-    @apply flex text-4xl text-primary;
+    @apply flex text-primary;
 
     .icon-wrapper {
-      @apply flex items-center gap-2;
+      @apply flex items-center gap-1;
 
       & .brackets {
-        @apply opacity-50;
+        @apply text-2xl opacity-50 md:text-4xl;
 
         transition: all 0.3s ease-in-out;
       }
 
       & .icon-text {
-        @apply font-chakra mt-1 text-2xl font-bold text-base-content;
+        @apply font-inconsolata text-xl font-bold text-base-content md:text-2xl;
       }
     }
   }
